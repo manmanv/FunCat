@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--声明式编程-->
+<div id="app">
+    <h2>总价格：{{TotalPrice}}</h2>
+</div>  <!--把app中的数据放进div-->
+
+<body>
+    <script src="../vue.js"></script>
+    <script>
+        // let 变量 ; const 常量
+        
+        const app = new Vue({
+            el:'#app',  //用于挂载要管理的元素
+            data:{  //定义一些数据
+                books:[ 
+                    {id:110,name:'现代操作系统',price:119},
+                    {id:120,name:'代码大全',price:79},
+                    {id:130,name:'深入理解计算机原理',price:85},
+                    {id:140,name:'Unix编程艺术',price:149},
+                ]
+            },
+            computed:{
+                TotalPrice:function(){
+                    let result = 0
+                    for(let i=0;i<this.books.length;i++){
+                        result += this.books[i].price
+                    }
+                    return result
+                }
+                // for(let i in this.books){
+                //     this.books[i]
+                // }
+                // for(let book of books){
+
+                // }
+            }
+        })
+    </script>
+</body>
+</html>

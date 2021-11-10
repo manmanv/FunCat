@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--声明式编程-->
+<div id="app">
+    <h2 v-pre>{{message}}</h2>  <!--把message里的东西原封不动的解释出来而不做解析-->
+</div>  <!--把app中的数据放进div-->
+
+<body>
+    <script src="../vue.js"></script>
+    <script>
+        // let 变量 ; const 常量
+        
+        const app = new Vue({
+            el:'#app',  //用于挂载要管理的元素
+            data:{  //定义一些数据
+                message:'你好啊，小帅哥',
+                age:"小帅哥多大啦？"
+            }
+        })
+    </script>
+</body>
+</html>

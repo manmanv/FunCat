@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1.变量作用域
+        // {
+        //     var name = 'why';
+        //     console.log(name);
+        // }
+        // console.log(name);
+        // //2.没有块级作用域引起的问题:if块级(没有作用域)
+        // var func;
+        // if(true){
+        //     var name1 = "why";
+        //     func = function(){
+        //         console.log(name1);
+        //     }
+        // }
+        // name1 = "boahs"
+        // console.log(name1);
+        // //3.没有块级作用域引起的问题：for的块级
+        // var btns = document.getElementsByTagName('button');
+        // for(var i=0;i<btns.length;i++){
+        //     (function(num){
+        //         buns[i].addEventListener('click',function(){
+        //             console.log('第'+num+'个按钮点击');
+        //         })
+        //     })(i)
+        // }
+        //es5没有作用域概念
+        //在es6中优先使用const
+    </script>
+</body>
+</html>

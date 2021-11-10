@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="styleSheet" href="02-style.css">
+    <title>Document</title>
+</head>
+<body>
+    
+<div id="app">
+    <div v-if="books.length">
+    <table>
+        <thead>
+            <tr>
+                <!--表头-->
+                <th  v-for="hd in heads">{{hd}}</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--根据index确定是具体哪一本书-->
+            <tr v-for="(item,index) in books">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.date}}</td>
+                <!--处理价格，保留两位小数，使用toFixed()-->
+                <td>{{getFinalPrice(item.price)}}</td>
+                <!--数量加减-->
+                <td>
+                    <!--disabled：当数量等于0时，按钮失效-->
+                    <button @click="decrement(index)" v-bind:disabled="item.count<=0">-</button>
+                    {{item.count}}
+                    <button @click="increment(index)">+</button>
+                </td>
+                <td>
+                    <button @click="removeHandle">移除</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>总价格:{{getFinalPrice(totalPrice)}}</h2>
+    </div>
+    <h2 v-else>购物车为空</h2>
+</div>
+
+<script src="../vue.js"></script>
+<script src="03-main.js"></script>
+
+</body>
+</html>

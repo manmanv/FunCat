@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--声明式编程-->
+<div id="app">
+    <!--
+        v-if 当条件为false时，包含v-if指令的元素根本就不会存在在dom中
+        v-show 当条件为false时，还会在dom存在，只是改变样式
+        在开发中如何选择？
+            需要在显示与隐藏之间切换频繁时，使用v-show
+            只有切换一次时，使用v-if
+    -->
+    <h2 v-if="isShow" id="aaa">{{message}}</h2>
+    <h2 v-show="is id="bbb">{{message}}</h2>
+</div>  <!--把app中的数据放进div-->
+
+<body>
+    <script src="../vue.js"></script>
+    <script>
+        // let 变量 ; const 常量
+        
+        const app = new Vue({
+            el:'#app',  //用于挂载要管理的元素
+            data:{  //定义一些数据
+                message:'你好啊',
+                isShow:true
+            }
+        })
+    </script>
+</body>
+</html>

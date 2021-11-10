@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--声明式编程-->
+<div id="app">
+    <cpn v-bind:cmovies="movies" :cmessage="message"></cpn>
+</div>  <!--把app中的数据放进div-->
+
+<body>
+
+    <template id = "cpn">
+        <div>
+            <p>{{cmovies}}</p>
+            <h2>{{cmessage}}</h2>
+        </div>
+    </template>
+
+    <script src="../vue.js"></script>
+    <script>
+        // let 变量 ; const 常量
+        //父传子：props
+        const cpn={
+            template:`#cpn`,
+            //数组
+            //props:['cmovies','cmessage'],
+
+            //对象
+            props:{
+                //类型的限制
+                // cmovies:Array, //给变量指定类型 对数据进行验证，要求是array类型
+                // cmessage:String, //要求是string类型
+                //提供默认值
+                cmessage:{
+                    type:String,//限定类型
+                    default:'aa',//默认值
+                    required:true,//必须传值，不传就会报错
+                },
+                cmovies:{
+                    type:Array,
+                    default:[]
+                }
+            },
+            
+        }
+
+        const app = new Vue({
+            el:'#app',  //用于挂载要管理的元素
+            data:{  //定义一些数据
+                message:'你好啊',
+                movies:['海王','海贼王']
+            },
+            components:{
+                cpn,
+            }
+        })
+    </script>
+</body>
+</html>

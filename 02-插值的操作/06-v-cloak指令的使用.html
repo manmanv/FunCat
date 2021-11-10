@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    [v-cloak]{
+        display: none;
+    }
+</style>
+<!--声明式编程-->
+<div id="app" v-cloak>{{message}}</div>  <!--把app中的数据放进div-->
+
+<body>
+    <script src="../vue.js"></script>
+    <script>
+        //在vue解析之前，div中有一个属性v-cloak
+        //在vue解析之后，div中没有一个属性v-cloak
+        setTimeout(function(){
+            const app = new Vue({
+            el:'#app',  //用于挂载要管理的元素
+            data:{  //定义一些数据
+                message:'你好啊，小帅哥',
+                age:"小帅哥多大啦？"
+            }
+        })
+        },1000)
+    </script>
+    
+</body>
+</html>

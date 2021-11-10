@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--声明式编程-->
+<div id="app">
+    <!--1. ''.stop'修饰符的使用 停止-->
+    <div @click="divClick">a
+        <button @click.stop="btnClick">按钮</button>
+    </div>
+
+    <!--2. '.prevent'修饰符的使用  阻止-->
+    <form action="baidu">
+        <input type = "submit" value="提交" @click.prevent="submitClick">
+    </form>
+
+    <!--3. '.'监听所有键盘键帽的点击-->
+    <input type="text" @keyup="keyUp">
+    <!--监听“enter”键帽的点击-->
+    <input type="text" @keyup.enter="keyUp">
+
+    <!--4. '.once'修饰符的使用  只能作用一次-->
+    <button @click.once="btn2Click">按钮2</button>
+
+</div>  <!--把app中的数据放进div-->
+
+<body>
+    <script src="../vue.js"></script>
+    <script>
+        // let 变量 ; const 常量
+        
+        const app = new Vue({
+            el:'#app',  //用于挂载要管理的元素
+            data:{  //定义一些数据
+                message:'你好啊',
+            },
+            methods:{
+                btnClick(){
+                    console.log("btnClick");
+                },
+                divClick(){
+                    console.log("divClick");
+                },
+                submitClick(){
+                    console.log('submitClick');
+                },
+                keyUp(){
+                    console.log('keyUp');
+                },
+                btn2Click(){
+                    console.log("btn2Click");
+                }
+            }
+        })
+    </script>
+</body>
+</html>
