@@ -11,8 +11,18 @@
 
 <body>
     <div id="app">
-    
+        <cpn><button>按钮</button></cpn>
+        <cpn><span>哈哈哈</span></cpn>
+        <cpn><i>呵呵</i></cpn>
     </div>  <!--把app中的数据放进div-->
+    <template id="cpn">
+        <div>
+            <h2>我是组件</h2>
+            <p>哈哈哈</p>
+            <!--给插条默认值-->
+            <slot><button></button></slot>
+        </div>
+    </template>
     <script src="../vue.js"></script>
     <script>
         // let 变量 ; const 常量
@@ -21,6 +31,11 @@
             el:'#app',  //用于挂载要管理的元素
             data:{  //定义一些数据
                 message:'你好啊',
+            },
+            components:{
+                cpn:{
+                    template:`#cpn`
+                }
             }
         })
     </script>

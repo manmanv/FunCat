@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!--声明式编程-->
+<!--准则：
+    父组件模板的所有东西都会在父级作用域内编译；
+    子组件模板的所有东西都会在子级作用域内编译。
+-->
+
+<body>
+    
+    <div id="app">
+        <cpn></cpn>
+        <cpn>
+            <template slot-scope="slot">
+                <span >{{slot.data.join('--')}}</span>
+            </template>
+        </cpn>
+    </div>  <!--把app中的数据放进div-->
+    <template id="cpn">
+        <div>
+            <slot :data="planguage">
+                <ul>
+                    <li v-for="item in planguage">{{item}}*</li>
+                </ul>
+            </slot>
+        </div>
+    </template>
+    <script src="../vue.js"></script>
+    <script>
+        // let 变量 ; const 常量
+        
+        const app = new Vue({
+            el:'#app',  //用于挂载要管理的元素
+            data:{  //定义一些数据
+                message:'你好啊',
+                
+            },
+            components:{
+                cpn:{
+                    template:`#cpn`,
+                    data(){
+                        return{
+                            planguage:['js','jsp','java','html','go']
+                        }
+                    },
+                    created(){
+                        this.planguage.join('--')
+                    }
+                },
+                    
+                },
+                
+            
+        })
+    </script>
+</body>
+</html>
