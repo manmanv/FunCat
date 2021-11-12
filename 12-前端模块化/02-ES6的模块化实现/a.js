@@ -14,3 +14,5 @@ export {
     flag,sum
 
 }
+//导出
+export let sex = '男'
