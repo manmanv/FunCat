@@ -16,3 +16,19 @@ export {
 }
 //导出
 export let sex = '男'
+
+//导出
+export class Person{
+    run(){
+        console.log('在奔跑');
+    }
+}
+
+export function mul(num1,num2){
+    return num1*num2
+}
+
+//export default 同一个文件只能有一个default
+export default function (agrument){
+    console.log(argument);
+}
