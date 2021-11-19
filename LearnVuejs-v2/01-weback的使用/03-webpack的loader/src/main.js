@@ -15,3 +15,4 @@ import {name,age} from './js/info.js';
 document.writeln('<h2>你好</h2>')
 
 
+

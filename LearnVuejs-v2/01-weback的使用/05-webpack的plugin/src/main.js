@@ -27,5 +27,7 @@ new Vue({
     }
 })
 
+document.writeln('<button>按钮</button>')
+
 
 
